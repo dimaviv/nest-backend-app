@@ -1,0 +1,6 @@
+{
+  "name": "nest-backend-app",
+  "jest": {
+    "verbose": true
+  }
+}
