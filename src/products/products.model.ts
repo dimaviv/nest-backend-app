@@ -9,6 +9,7 @@ interface ProductCreationAttrs{
     priceTrade: number;
     available: boolean;
     quantity: number;
+    //rename to supply price
     price: number;
 }
 
@@ -30,7 +31,7 @@ export class Product extends Model<Product, ProductCreationAttrs>{
     @Column({type: DataType.DECIMAL, allowNull:false})
     priceTrade:number;
 
-    @Column({type: DataType.BOOLEAN, allowNull:false})
+    @Column({type: DataType.BOOLEAN, allowNull:true, defaultValue:true})
     available:boolean;
 
     @Column({type: DataType.INTEGER, allowNull:false})

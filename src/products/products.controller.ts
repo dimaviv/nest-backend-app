@@ -13,8 +13,9 @@ export class ProductsController {
   }
 
   @Get()
-  findAll(@Query('id') id: number) {
-    return this.productsService.findAll(id);
+  findAll(@Query('page') page: number,
+          @Query('limit') limit: number,) {
+    return this.productsService.findAll(page, limit);
   }
 
   @Get(':id')

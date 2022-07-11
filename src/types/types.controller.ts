@@ -17,12 +17,12 @@ export class TypesController {
         return this.typesService.findAll()
     }
 
-    @Patch()
+    @Patch(':id')
     update(@Param('id') id: number, @Body() updateTypeDto: UpdateTypeDto){
         return this.typesService.update(id, updateTypeDto)
     }
 
-    @Delete()
+    @Delete(':id')
     delete(@Param('id') id: number){
         return this.typesService.delete(id)
     }

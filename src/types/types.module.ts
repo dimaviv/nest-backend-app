@@ -7,11 +7,15 @@ import {Product} from "../products/products.model";
 import {ProductTypes} from "./product-types.model";
 
 
+
 @Module({
   controllers: [TypesController],
   providers: [TypesService],
   imports: [
     SequelizeModule.forFeature([Type, Product, ProductTypes]),
+  ],
+  exports:[
+    TypesService,
   ]
 })
 

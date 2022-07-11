@@ -1,9 +1,6 @@
 import {BelongsTo, BelongsToMany, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
-import {User} from "../users/users.model";
-import {UserRoles} from "../roles/user-roles.model";
 import {Product} from "../products/products.model";
 import {ProductTypes} from "./product-types.model";
-import {Post} from "../posts/posts.model";
 
 
 interface TypeCreationAttrs{
@@ -11,7 +8,7 @@ interface TypeCreationAttrs{
     parentId: number;
 }
 
-@Table({tableName: 'roles'})
+@Table({tableName: 'types'})
 export class Type extends Model<Type, TypeCreationAttrs>{
 
     @Column({type: DataType.INTEGER, unique:true, autoIncrement:true, primaryKey:true})
@@ -21,7 +18,7 @@ export class Type extends Model<Type, TypeCreationAttrs>{
     name: string;
 
     @ForeignKey(() => Type)
-    @Column({type: DataType.INTEGER, allowNull:false})
+    @Column({type: DataType.INTEGER, allowNull:true})
     parentId: number;
 
     @BelongsToMany(() => Product, () => ProductTypes)
@@ -30,7 +27,7 @@ export class Type extends Model<Type, TypeCreationAttrs>{
     @BelongsTo(() => Type)
     parent: Type;
 
-    // @HasMany(() => Product)
-    // products: Product[];
+    @HasMany(() => Type)
+    types: Type[];
 
 }
