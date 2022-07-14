@@ -1,31 +1,22 @@
-import {INestApplication} from "@nestjs/common";
-import {Test, TestingModule} from "@nestjs/testing";
-import {ProductsModule} from "../dist/products/products.module";
 import * as request from "supertest";
-import {getModelToken} from "@nestjs/sequelize";
-import {Product} from "../dist/products/products.model";
+import {CreateProductDto} from "../dist/products/dto/create-product.dto";
 
 
-describe('UserController (e2e)', () => {
-    let app: INestApplication;
+describe('ProductsController (e2e)', () => {
+    const productsUrl = `http://localhost:5000/products/`
 
-    const mockProductsRepository = {
-
+    const mockProduct: CreateProductDto = {
+        name: 'New product',
+        typeId: 3,
+        priceRetail: 35,
+        priceTrade: 24,
+        quantity: 90,
+        price: 20,
     }
 
-    beforeEach(async () => {
-        const moduleFuxture: TestingModule = await Test.createTestingModule({
-            imports: [ProductsModule],
-        }).overrideProvider(getModelToken(Product))
-            .useValue(mockProductsRepository)
-            .compile()
-        
-        app = moduleFuxture.createNestApplication();
-        await app.init();
-    });
 
     it('/products (GET)', () => {
-        return request(app.getHttpServer())
+        return request(productsUrl)
             .get('/products')
             .expect(200)
 
