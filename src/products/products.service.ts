@@ -18,7 +18,6 @@ export class ProductsService {
   async create(dto: CreateProductDto) {
     const product = await this.productRepository.create(dto)
     const types_ids = await this.typesService.getIdListOfParents(dto.typeId)
-
     await product.$set('types', types_ids)
     return product;
   }
@@ -36,12 +35,12 @@ export class ProductsService {
 
   async update(id: number, dto: UpdateProductDto) {
     const product = await this.productRepository.findByPk(id)
-    const updatedProduct = await product.update(dto)
+    const updatedProduct = await product.update(dto, {where:{id}})
     if (dto.typeId){
       const types_ids = await this.typesService.getIdListOfParents(dto.typeId)
       await updatedProduct.$set('types', types_ids)
     }
-    return {updatedProduct, };
+    return updatedProduct;
   }
 
   async remove(id: number) {
