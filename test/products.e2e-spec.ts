@@ -1,6 +1,8 @@
+/* eslint-disable */
 import * as request from "supertest";
 import {CreateProductDto} from "../dist/products/dto/create-product.dto";
 import {HttpStatus} from "@nestjs/common";
+
 const generateRandomString = require("../src/helpers/generateRandomString")
 
 describe('ProductsController (e2e)', () => {
@@ -29,8 +31,10 @@ describe('ProductsController (e2e)', () => {
             .post('')
             .send(mockProduct)
             .expect((response: request.Response) => {
-                const {id, name, typeId, priceRetail,
-                    priceTrade, quantity, price} = response.body;
+                const {
+                    id, name, typeId, priceRetail,
+                    priceTrade, quantity, price
+                } = response.body;
                 expect(typeof id).toBe('number'),
                 expect(name).toEqual(mockProduct.name),
                 expect(typeId).toEqual(mockProduct.typeId),
@@ -53,8 +57,10 @@ describe('ProductsController (e2e)', () => {
         return request(productsUrl)
             .get(`/${ID}`)
             .expect((response: request.Response) => {
-                const {id, name, typeId, priceRetail,
-                    priceTrade, quantity, price, available} = response.body;
+                const {
+                    id, name, typeId, priceRetail,
+                    priceTrade, quantity, price, available
+                } = response.body;
                 expect(id).toEqual(ID),
                 expect(name).toEqual(mockProduct.name),
                 expect(typeId).toEqual(mockProduct.typeId),
@@ -72,8 +78,10 @@ describe('ProductsController (e2e)', () => {
             .patch(`/${ID}`)
             .send(mockPatchedProduct)
             .expect((response: request.Response) => {
-                const {id, name, typeId, priceRetail,
-                    priceTrade, quantity, price, available} = response.body;
+                const {
+                    id, name, typeId, priceRetail,
+                    priceTrade, quantity, price, available
+                } = response.body;
                 expect(id).toEqual(ID),
                 expect(name).toEqual(mockPatchedProduct.name),
                 expect(typeId).toEqual(mockPatchedProduct.typeId),

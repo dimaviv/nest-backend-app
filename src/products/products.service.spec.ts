@@ -10,7 +10,8 @@ import {Type} from "../types/types.model";
 describe('UserService', () => {
     let service: ProductsService;
     const mockProductsRepository = {
-        create: jest.fn().mockImplementation(dto => Promise.resolve({id: Date.now(), ...dto, types:[{id:1},{id:2}, {id:3}],
+        create: jest.fn().mockImplementation(dto => Promise.resolve({
+            id: Date.now(), ...dto, types: [{id: 1}, {id: 2}, {id: 3}],
             $set: jest.fn(() => Promise.resolve())
         })),
         findByPk: jest.fn().mockImplementation(() => ({
@@ -23,15 +24,15 @@ describe('UserService', () => {
             price: 20,
             $set: jest.fn(() => Promise.resolve()),
             update: jest.fn(() => ({
-                    id:1,
-                    name: 'New product',
-                    typeId: 3,
-                    priceRetail: 35,
-                    priceTrade: 24,
-                    quantity: 90,
-                    price: 20,
-                    types: [{id: 4}, {id: 5}],
-                    $set: jest.fn(() => Promise.resolve())
+                id: 1,
+                name: 'New product',
+                typeId: 3,
+                priceRetail: 35,
+                priceTrade: 24,
+                quantity: 90,
+                price: 20,
+                types: [{id: 4}, {id: 5}],
+                $set: jest.fn(() => Promise.resolve())
             })),
         })),
         findOne: jest.fn().mockImplementation(),
@@ -45,10 +46,10 @@ describe('UserService', () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
                 ProductsService, {
-                provide: getModelToken(Product),
-                useValue: mockProductsRepository
-        }, TypesService
-        ]
+                    provide: getModelToken(Product),
+                    useValue: mockProductsRepository
+                }, TypesService
+            ]
         }).overrideProvider(TypesService).useValue(mockTypesService).compile()
 
         service = module.get<ProductsService>(ProductsService);
@@ -82,7 +83,7 @@ describe('UserService', () => {
         });
     });
     it('should update the product, attach updated types and return it', async () => {
-        expect(await service.update(1,{
+        expect(await service.update(1, {
             name: 'New product',
             typeId: 3,
             priceRetail: 35,

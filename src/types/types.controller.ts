@@ -10,22 +10,22 @@ export class TypesController {
     constructor(private readonly typesService: TypesService) {}
 
     @Post()
-    create(@Body() createTypeDto: CreateTypeDto){
+    create(@Body() createTypeDto: CreateTypeDto) {
         return this.typesService.create(createTypeDto)
     }
 
     @Get()
-    findAll(){
+    findAll() {
         return this.typesService.findAll()
     }
 
     @Patch(':id')
-    update(@Param('id') id: number, @Body() updateTypeDto: UpdateTypeDto){
+    update(@Param('id') id: number, @Body() updateTypeDto: UpdateTypeDto) {
         return this.typesService.update(id, updateTypeDto)
     }
 
     @Delete(':id')
-    delete(@Param('id') id: number){
+    delete(@Param('id') id: number) {
         return this.typesService.delete(id)
     }
 
