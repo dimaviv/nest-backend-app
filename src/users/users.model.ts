@@ -12,7 +12,7 @@ interface UserCreationAttrs{
 @Table({tableName: 'users'})
 export class User extends Model<User, UserCreationAttrs>{
 
-    @ApiProperty({example:'1', description: 'Unique ID'})
+    @ApiProperty({example: '1', description: 'Unique ID'})
     @Column({type: DataType.INTEGER, unique:true, autoIncrement:true, primaryKey:true})
     id:number;
 

@@ -1,9 +1,8 @@
-/* eslint-disable */
 import * as request from "supertest";
 import {CreateProductDto} from "../dist/products/dto/create-product.dto";
 import {HttpStatus} from "@nestjs/common";
+import generateRandomString from "../src/helpers/generateRandomString";
 
-const generateRandomString = require("../src/helpers/generateRandomString")
 
 describe('ProductsController (e2e)', () => {
     const productsUrl = `http://localhost:5000/products`
