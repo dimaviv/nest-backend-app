@@ -1,9 +1,9 @@
-#The registrar of settlement operations (укр. Реєстратор розрахункових операцій)
+# The registrar of settlement operations (укр. Реєстратор розрахункових операцій)
 
 ## Description
 Future RSO using NestJS, PostgreSQL(sequelize), Jest, Swagger 
 
-I have almost finished project like this (using PHP), but due to awful code it was decided to rewrite on NestJS
+I have almost finished the project like this (using PHP), but due to awful code it was decided to rewrite on NestJS
 
 ## Implemented
  * CRUD APIs
