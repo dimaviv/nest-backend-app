@@ -12,6 +12,7 @@ I have almost finished the project like this (using PHP), but due to awful code 
  * some e2e and unit tests (Jest)
  * validation (class-validator)
  * roles guard system
+ * bcrypt password-hashing
  * Swagger documentation
 
 ## Installation
