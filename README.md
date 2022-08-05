@@ -8,7 +8,7 @@ I have almost finished project like this (using PHP), but due to awful code it w
 ## Implemented
  * CRUD APIs
  * JWT auth
- * some e2e and unit test (Jest)
+ * some e2e and unit tests (Jest)
  * validation (class-validator)
  * roles guard system
  * Swagger documentation
