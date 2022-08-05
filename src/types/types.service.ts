@@ -71,7 +71,7 @@ export class TypesService {
       ],
     });
 
-    let types = JSON.parse(JSON.stringify(types_model, null, 2));
+    const types = JSON.parse(JSON.stringify(types_model, null, 2));
 
     const parents_ids = [];
     const iterate = (obj) => {
