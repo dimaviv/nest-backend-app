@@ -2,9 +2,12 @@
  (укр. Реєстратор розрахункових операцій)
 
 ## Description
-Future RSO using NestJS, PostgreSQL(sequelize), Jest, Swagger 
+ The web application is expected to do inventory management and be a portable cash register.
+The cashier can scan the QR code of the product to add it to the shopping cart. After the 
+scanning all goods needed, the cashier can generate a receipt and print it.
+This app could simplify the job of small retailers who can't afford a pricy cash register equipment
+and to bring order in the accounting of goods.
 
-I have almost finished the project like this (using PHP), but due to awful code it was decided to rewrite on NestJS
 
 ## Implemented
  * CRUD APIs
@@ -14,6 +17,11 @@ I have almost finished the project like this (using PHP), but due to awful code 
  * roles guard system
  * bcrypt password-hashing
  * Swagger documentation
+   
+## Prehistory 
+I have finished the prototype of this project using PHP.
+The idea was to implement as much functionality as possible in the shortest time.
+After, the project was decided to rework using NestJs.
 
 ## Installation
 
