@@ -2,11 +2,7 @@
  (укр. Реєстратор розрахункових операцій)
 
 ## Description
- The web application is expected to do inventory management and be a portable cash register.
-The cashier can scan the QR code of the product to add it to the shopping cart. After the 
-scanning all goods needed, the cashier can generate a receipt and print it.
-This app could simplify the job of small retailers who can't afford a pricy cash register equipment
-and to bring order in the accounting of goods.
+ The web application is expected to do inventory management and be a portable cash register. The cashier can scan the QR code of the product to add it to the shopping cart. After the scanning of all goods needed, the cashier can generate a receipt and print it. This app could simplify the job of small retailers who can't afford pricey cash register equipment and bring the order in the accounting of goods.
 
 
 ## Implemented
